@@ -8,7 +8,7 @@ export const Oscar = () => {
       style={{
         overflowY: "auto", // Habilitar scroll vertical
         padding: "1rem", // Espaciado interno para que no se vea muy ajustado
-        margin: "4rem",
+        margin: "0rem",
       }}
     >
       {/* <OscarNominations name="WILLIAM" /> */}

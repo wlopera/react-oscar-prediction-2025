@@ -2,7 +2,7 @@ export const data = {
   record: {
     categories: [
       {
-        name: "Mejor Película",
+        name: "Película",
         nominees: [
           "Anora",
           "The Brutalist",
@@ -17,7 +17,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Director",
+        name: "Director",
         nominees: [
           "Sean Baker - Anora",
           "Brady Corbet - The Brutalist",
@@ -27,7 +27,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Actriz Principal",
+        name: "Actriz Principal",
         nominees: [
           "Cynthia Erivo - Wicked",
           "Karla Sofía Gascón - Emilia Pérez",
@@ -37,7 +37,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Actor Principal",
+        name: "Actor Principal",
         nominees: [
           "Adrian Brody - The Brutalist",
           "Timothée Chalamet - A Complete Unknown",
@@ -47,7 +47,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Actriz de Reparto",
+        name: "Actriz de Reparto",
         nominees: [
           "Monica Barbaro - A Complete Unknown",
           "Ariana Grande - Wicked",
@@ -57,7 +57,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Actor de Reparto",
+        name: "Actor de Reparto",
         nominees: [
           "Yura Borisov - Anora",
           "Kieran Culkin - A Real Pain",
@@ -67,7 +67,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Película Internacional",
+        name: "Película Internacional",
         nominees: [
           "I'm Still Here (Brasil)",
           "The Girl With the Needle (Dinamarca)",
@@ -77,7 +77,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Película de Animación",
+        name: "Película de Animación",
         nominees: [
           "Flow",
           "Del Revés 2",
@@ -87,7 +87,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Documental",
+        name: "Documental",
         nominees: [
           "Black Box Diaries",
           "No Other Land",
@@ -97,7 +97,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Montaje",
+        name: "Montaje",
         nominees: [
           "Anora",
           "The Brutalist",
@@ -107,7 +107,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Fotografía",
+        name: "Fotografía",
         nominees: [
           "The Brutalist",
           "Dune: Parte 2",
@@ -117,7 +117,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Guion Adaptado",
+        name: "Guion Adaptado",
         nominees: [
           "A Complete Unknown",
           "Conclave",
@@ -127,7 +127,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Guion Original",
+        name: "Guion Original",
         nominees: [
           "Anora",
           "The Brutalist",
@@ -137,7 +137,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Sonido",
+        name: "Sonido",
         nominees: [
           "A Complete Unknown",
           "Dune: Parte Dos",
@@ -147,7 +147,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Banda Sonora",
+        name: "Banda Sonora",
         nominees: [
           "The Brutalist",
           "Emilia Pérez",
@@ -157,7 +157,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Canción Original",
+        name: "Canción Original",
         nominees: [
           "El mal (Emilia Pérez)",
           "The Journey (Seis triple ocho)",
@@ -167,7 +167,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Diseño de Producción",
+        name: "Diseño de Producción",
         nominees: [
           "The Brutalist",
           "Conclave",
@@ -177,7 +177,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Diseño de Vestuario",
+        name: "Diseño de Vestuario",
         nominees: [
           "A Complete Unknown",
           "Conclave",
@@ -187,7 +187,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Maquillaje y Peluquería",
+        name: "Maquillaje y Peluquería",
         nominees: [
           "A Different Man",
           "Emilia Pérez",
@@ -207,7 +207,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Corto Ficción",
+        name: "Corto Ficción",
         nominees: [
           "A lien",
           "Anuja",
@@ -217,7 +217,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Corto de Animación",
+        name: "Corto de Animación",
         nominees: [
           "Beautiful Men",
           "In the shadow of the cypress",
@@ -227,7 +227,7 @@ export const data = {
         ],
       },
       {
-        name: "Mejor Corto Documental",
+        name: "Corto Documental",
         nominees: [
           "Death by numbers",
           "I am ready, Warden",

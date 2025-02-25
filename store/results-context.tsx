@@ -38,7 +38,7 @@ export const ResultsContextProvider = ({
 
         const data = await response.json();
 
-        console.log("Data: ", JSON.stringify(data, null, 2));
+        //console.log("Data: ", JSON.stringify(data, null, 2));
         setResults(data.record);
       } catch (err) {
         console.log("Error: ", err);

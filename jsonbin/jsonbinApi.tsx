@@ -65,41 +65,41 @@ const getAllResultsDummy = () => {
 // Metodo publicos
 
 export const getCategories = () => {
-  console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_CATEGORIES_URL);
-  console.log(
-    "KEY:",
-    process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
-      ? "✅ Cargada"
-      : "❌ No cargada"
-  );
+  // console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_CATEGORIES_URL);
+  // console.log(
+  //   "KEY:",
+  //   process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
+  //     ? "✅ Cargada"
+  //     : "❌ No cargada"
+  // );
 
   //return getCategoriesUrl();
   return getCategoriesDummy();
 };
 
 export const getAllResults = () => {
-  console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_RESULTS);
-  console.log(
-    "KEY:",
-    process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
-      ? "✅ Cargada"
-      : "❌ No cargada"
-  );
+  // console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_RESULTS);
+  // console.log(
+  //   "KEY:",
+  //   process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
+  //     ? "✅ Cargada"
+  //     : "❌ No cargada"
+  // );
 
   //return getAllResultsUrl();
   return getAllResultsDummy();
 };
 
 export const updateResults = async (data: SessionState | null) => {
-  console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_RESULTS);
-  console.log(
-    "KEY:",
-    process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
-      ? "✅ Cargada"
-      : "❌ No cargada"
-  );
+  // console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_RESULTS);
+  // console.log(
+  //   "KEY:",
+  //   process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY
+  //     ? "✅ Cargada"
+  //     : "❌ No cargada"
+  // );
 
-  console.log("Datos enviados:", data);
+  // console.log("Datos enviados:", data);
 
   if (!data) {
     console.error("Datos de resultados no válidos");
@@ -126,7 +126,7 @@ export const updateResults = async (data: SessionState | null) => {
     }
 
     const response = await respuesta.json();
-    console.log("Respuesta:", response);
+    // console.log("Respuesta:", response);
   } catch (error) {
     console.error("Error al actualizar el bin:", error);
   }
