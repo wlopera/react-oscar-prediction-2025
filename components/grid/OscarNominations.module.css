@@ -1,0 +1,24 @@
+.table_results {
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    width: 750px;
+    height: 80vh;
+    font-family: monospace;
+    font-size: 14px;    
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: prewrap;
+    border: 1px solid #e82828;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    z-index: 000
+  }
+
+  .table_title { display: flex }
+  
+  .field_key { width: 250px; font-weight: bold}
+    
+  .field_value { margin-left: 10px }
