@@ -6,6 +6,7 @@ import ResultsContext from "@/store/results-context";
 
 import styles from "./OscarResults.module.css";
 import { getCategories } from "@/jsonbin/jsonbinApi";
+import ModalComponent from "../ui/modal/ModalComponent";
 
 // type ResultItem = Record<string, string | undefined>;
 type ResultItem = {
@@ -28,6 +29,8 @@ export const OscarResults = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [records, setRecords] = useState<SessionState | null>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({ title: "", content: [] });
 
   const context = useContext(ResultsContext);
   if (!context) {
@@ -36,7 +39,7 @@ export const OscarResults = () => {
     );
   }
 
-  const { results } = context;
+  const { results, updateResult } = context;
 
   useEffect(() => {
     const fetchNominations = async () => {
@@ -54,7 +57,7 @@ export const OscarResults = () => {
           results?.users
             ? {
                 users: results.users
-                  .filter((user) => user.name !== "WINNER") // Excluir WINNER
+                  // .filter((user) => user.name !== "WINNER") // Excluir WINNER
                   .map((user) => ({
                     name: user.name,
                     values: user.result.map((result) => ({
@@ -86,6 +89,36 @@ export const OscarResults = () => {
     )
   );
 
+  const getWinner = ({ category }: { category: string | undefined }) => {
+    const record = categories.filter((item) => item.name === category);
+
+    // console.log(`Categoría: ${category}`);
+    // console.log(1111, record[0].nominees);
+
+    setModalData({
+      title: category ?? "Categoría desconocida",
+      content: record[0].nominees ?? [],
+    });
+    setShowModal(true);
+  };
+
+  const handleChangeValue = (category: string, value: string) => {
+    updateResult("WINNER", category, value);
+    setShowModal(false);
+  };
+
+  const getTotalByUser = (name: string) => {
+    let total = 0;
+    records?.users.forEach((item) => {
+      if (item.name === name) {
+        item.values.forEach((result) => {
+          total += result.score;
+        });
+      }
+    });
+    return total;
+  };
+
   return (
     <div className={`text-start ${styles.table_wrapper}`}>
       <table className={styles.table}>
@@ -94,7 +127,13 @@ export const OscarResults = () => {
             <th className={styles.headerCell}>Categoría</th>
             {records?.users.map((user, index) => (
               <React.Fragment key={`header-${index}`}>
-                <th className={styles.headerCell}>{user.name}</th>
+                {user.name === "WINNER" ? (
+                  <th className={styles.headerCell}>{`${user.name} `}</th>
+                ) : (
+                  <th className={styles.headerCell}>{`${
+                    user.name
+                  } ... ${getTotalByUser(user.name)}`}</th>
+                )}
               </React.Fragment>
             ))}
           </tr>
@@ -102,16 +141,25 @@ export const OscarResults = () => {
         <tbody>
           {allCategories.map((category, i) => (
             <tr key={i}>
-              <td className={styles.cell}>{category}</td>
+              <td
+                className={styles.cell}
+                onClick={() => getWinner({ category })}
+              >
+                {category}
+              </td>
               {records?.users.map((user, j) => {
                 const userEntry = user.values.find(
                   (v) => v.category === category
                 );
                 return (
                   <React.Fragment key={`row-${j}-${i}`}>
-                    <td className={styles.cell}>{`${
-                      userEntry?.value?.substring(0, 30) + "..." || "-"
-                    } ${userEntry?.score ?? 0}`}</td>
+                    {user.name === "WINNER" ? (
+                      <td className={styles.cell}>{`${userEntry?.value} `}</td>
+                    ) : (
+                      <td className={styles.cell}>{`${
+                        userEntry?.value?.substring(0, 25) + "..." || "-"
+                      } ${userEntry?.score ?? 0}`}</td>
+                    )}
                   </React.Fragment>
                 );
               })}
@@ -119,6 +167,15 @@ export const OscarResults = () => {
           ))}
         </tbody>
       </table>
+      {/* Renderiza el modal si está activo */}
+      {showModal && (
+        <ModalComponent
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          onUpdate={(title, value) => handleChangeValue(title, value)}
+          {...modalData}
+        />
+      )}
     </div>
   );
 };

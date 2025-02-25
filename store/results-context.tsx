@@ -51,7 +51,9 @@ export const ResultsContextProvider = ({
   const updateResult = (name: string, category: string, value: string) => {
     setResults((prev) => {
       if (!prev) return prev;
-      const updatedUsers = prev.users.map((user) =>
+
+      // Primero, actualizamos los valores del usuario que se está modificando
+      let updatedUsers = prev.users.map((user) =>
         user.name === name
           ? {
               ...user,
@@ -63,6 +65,28 @@ export const ResultsContextProvider = ({
             }
           : user
       );
+
+      // Si el usuario actualizado es "WINNER", evaluamos la categoría en los otros usuarios
+      if (name === "WINNER") {
+        updatedUsers = updatedUsers.map((user) => {
+          if (["ANDRES", "DANIEL", "HECTOR", "WILLIAM"].includes(user.name)) {
+            return {
+              ...user,
+              result: user.result.map((entry) => {
+                if (Object.keys(entry)[0] === category) {
+                  return {
+                    ...entry,
+                    puntuation: entry[category] === value ? 1 : 0, // Actualiza puntuation
+                  };
+                }
+                return entry;
+              }),
+            };
+          }
+          return user;
+        });
+      }
+
       return { ...prev, users: updatedUsers };
     });
   };
