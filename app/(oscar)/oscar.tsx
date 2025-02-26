@@ -1,4 +1,4 @@
-import { Init, OscarNominations, OscarResults } from "@/components";
+import { Init } from "@/components";
 import React from "react";
 
 export const Oscar = () => {
@@ -11,8 +11,6 @@ export const Oscar = () => {
       }}
     >
       <Init />
-      {/* <OscarNominations name="WILLIAM" /> */}
-      {/* <OscarResults name="WILLIAM" /> */}
     </div>
   );
 };

@@ -77,7 +77,7 @@ export const ResultsContextProvider = ({
                 if (Object.keys(entry)[0] === category) {
                   return {
                     ...entry,
-                    puntuation: entry[category] === value ? 1 : 0, // Actualiza puntuation
+                    puntuation: entry[category] === value ? "1" : "0", // Actualiza puntuation
                   };
                 }
                 return entry;

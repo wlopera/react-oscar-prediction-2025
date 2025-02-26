@@ -1,14 +1,13 @@
 "use client";
 
-import { Category } from "@/interfaces";
 import React, { useState, useEffect, useContext } from "react";
 import ResultsContext from "@/store/results-context";
 
 import styles from "./OscarResults.module.css";
 import { getCategories } from "@/jsonbin/jsonbinApi";
 import ModalComponent from "../ui/modal/ModalComponent";
+import { Category } from "@/interfaces";
 
-// type ResultItem = Record<string, string | undefined>;
 type ResultItem = {
   category: string | undefined;
   value: string | undefined;
@@ -30,7 +29,13 @@ export const OscarResults = () => {
   const [error, setError] = useState<string | null>(null);
   const [records, setRecords] = useState<SessionState | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const [modalData, setModalData] = useState({ title: "", content: [] });
+  const [modalData, setModalData] = useState<{
+    title: string;
+    content: string[];
+  }>({
+    title: "",
+    content: [],
+  });
 
   const context = useContext(ResultsContext);
   if (!context) {
@@ -90,15 +95,13 @@ export const OscarResults = () => {
   );
 
   const getWinner = ({ category }: { category: string | undefined }) => {
-    const record = categories.filter((item) => item.name === category);
-
-    // console.log(`Categoría: ${category}`);
-    // console.log(1111, record[0].nominees);
+    const record = categories.find((item) => item.name === category);
 
     setModalData({
       title: category ?? "Categoría desconocida",
-      content: record[0].nominees ?? [],
+      content: record?.nominees ?? [], // Se asegura de que siempre sea un array
     });
+
     setShowModal(true);
   };
 
