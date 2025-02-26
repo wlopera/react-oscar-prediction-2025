@@ -1,4 +1,4 @@
-import { OscarNominations, OscarResults } from "@/components";
+import { Init, OscarNominations, OscarResults } from "@/components";
 import React from "react";
 
 export const Oscar = () => {
@@ -8,11 +8,11 @@ export const Oscar = () => {
       style={{
         overflowY: "auto", // Habilitar scroll vertical
         padding: "1rem", // Espaciado interno para que no se vea muy ajustado
-        margin: "0rem",
       }}
     >
+      <Init />
       {/* <OscarNominations name="WILLIAM" /> */}
-      <OscarResults name="WILLIAM" />
+      {/* <OscarResults name="WILLIAM" /> */}
     </div>
   );
 };

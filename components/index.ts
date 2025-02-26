@@ -1,3 +1,5 @@
+export * from "./home/Init";
+
 export * from "./grid/OscarNominations";
 export * from "./grid/OscarResults";
 

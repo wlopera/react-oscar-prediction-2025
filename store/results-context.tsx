@@ -16,6 +16,7 @@ type ResultsContextType = {
   results: SessionState | null;
   updateResult: (name: string, category: string, value: string) => void;
   getResultsByUser: (name: string) => ResultItem[] | undefined;
+  clearResultsByUser: (name: string) => void;
 };
 
 const ResultsContext = createContext<ResultsContextType | undefined>(undefined);
@@ -87,6 +88,8 @@ export const ResultsContextProvider = ({
         });
       }
 
+      //updateResultsJsonBin({ ...prev, users: updatedUsers });
+
       return { ...prev, users: updatedUsers };
     });
   };
@@ -96,9 +99,29 @@ export const ResultsContextProvider = ({
     return user?.result;
   };
 
+  const clearResultsByUser = (name: string) => {
+    setResults((prev) => {
+      if (!prev) return prev;
+
+      const updatedUsers = prev.users.map((user) =>
+        user.name === name
+          ? {
+              ...user,
+              result: user.result.map((entry) => {
+                const category = Object.keys(entry)[0]; // Obtener la categoría
+                return { [category]: "" }; // Asignar "" a la categoría
+              }),
+            }
+          : user
+      );
+
+      return { ...prev, users: updatedUsers };
+    });
+  };
+
   return (
     <ResultsContext.Provider
-      value={{ results, updateResult, getResultsByUser }}
+      value={{ results, updateResult, getResultsByUser, clearResultsByUser }}
     >
       {children}
     </ResultsContext.Provider>

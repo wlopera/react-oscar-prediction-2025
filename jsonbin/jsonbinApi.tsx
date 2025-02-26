@@ -90,7 +90,7 @@ export const getAllResults = () => {
   return getAllResultsDummy();
 };
 
-export const updateResults = async (data: SessionState | null) => {
+export const updateResultsJsonBin = async (data: SessionState | null) => {
   // console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_RESULTS);
   // console.log(
   //   "KEY:",

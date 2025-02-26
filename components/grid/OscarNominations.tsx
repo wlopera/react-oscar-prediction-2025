@@ -6,7 +6,7 @@ import ListOpcionesButton from "../ui/button/ListOpcionesButton";
 import ResultsContext from "@/store/results-context";
 
 import styles from "./OscarNominations.module.css";
-import { getCategories, updateResults } from "@/jsonbin/jsonbinApi";
+import { getCategories, updateResultsJsonBin } from "@/jsonbin/jsonbinApi";
 
 interface Props {
   name: string;
@@ -24,7 +24,7 @@ export const OscarNominations = ({ name }: Props) => {
     );
   }
 
-  const { results, getResultsByUser } = context;
+  const { results, getResultsByUser, clearResultsByUser } = context;
 
   useEffect(() => {
     const fetchNominations = async () => {
@@ -56,7 +56,7 @@ export const OscarNominations = ({ name }: Props) => {
   const userResults = getResultsByUser(name);
 
   const sendResults = async () => {
-    await updateResults(results);
+    await updateResultsJsonBin(results);
   };
 
   const getNominations = () => {
@@ -95,13 +95,21 @@ export const OscarNominations = ({ name }: Props) => {
         {getNominations()}
       </div>
       <div className={`col-8 text-start ${styles.table_results}`}>
-        <div className="text-end">
+        <div className="text-end gap-2">
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary me-2"
+            onClick={() => clearResultsByUser(name)}
+          >
+            Lmpiar
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-success"
             onClick={sendResults}
           >
-            Enviar Resultados
+            Enviar
           </button>
         </div>
         {getTableResults()}
