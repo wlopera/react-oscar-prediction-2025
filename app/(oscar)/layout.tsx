@@ -1,4 +1,4 @@
-import { Footer, Menu } from "@/components";
+import { Menu } from "@/components";
 import React from "react";
 
 export default function ShopLayout({
@@ -12,7 +12,7 @@ export default function ShopLayout({
       <main className="container mt-5 min-h-screen">
         <div>{children}</div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

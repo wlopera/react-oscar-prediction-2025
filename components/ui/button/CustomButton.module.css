@@ -1,0 +1,32 @@
+.custom-button {
+    width: 400px;
+    text-align: left;
+    margin: 2px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Estado no seleccionado */
+.custom-button.default {
+    background-color: #e8efee; /* Gris claro */
+    color: #264653; /* Azul oscuro */
+    border-color: #2a9d8f; /* Verde suave */
+}
+
+/* Estado seleccionado */
+.custom-button.selected {
+    background-color: #f4a261; /* Melocotón suave */
+    color: white;
+    border-color: #e76f51; /* Rojo suave */
+}
+
+/* Hover */
+.custom-button:hover {
+    background-color: #2a9d8f; /* Verde suave */
+    color: white;
+}

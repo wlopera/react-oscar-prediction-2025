@@ -4,15 +4,18 @@ import { users } from "@/data/users";
 import React, { FormEvent, useState } from "react";
 import { OscarResults } from "../grid/OscarResults";
 import { OscarNominations } from "../grid/OscarNominations";
+import styles from "./Init.module.css"; // Importa el CSS
 
 export const Init = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onHandleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    setError(null);
     if (validateUser()) {
       setAuthenticated(true);
     } else {
@@ -33,41 +36,43 @@ export const Init = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <form
-        className="p-3 border border-dark bg-light rounded w-25 text-start"
-        onSubmit={onHandleSubmit}
-      >
-        <div className="mb-3 ">
-          <label htmlFor="user" className="form-label">
-            usuario
+    <div className={styles.container}>
+      <form className={styles.formContainer} onSubmit={onHandleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="user" className={styles.label}>
+            Usuario
           </label>
           <input
             type="text"
-            className="form-control"
             id="user"
+            className={styles.input}
             value={user}
-            onChange={(e) => {
-              setUser(e.target.value);
-            }}
+            onChange={(e) => setUser(e.target.value)}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className={styles.label}>
             Contraseña
           </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div className={styles.inputGroup}>
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              className={styles.input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className={styles.toggleButton}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
         </div>
-        {error && <p className="text-danger">{error}</p>}
-        <button type="submit" className="btn btn-primary">
+        {error && <p className={styles.error}>{error}</p>}
+        <button type="submit" className={styles.button}>
           Aceptar
         </button>
       </form>

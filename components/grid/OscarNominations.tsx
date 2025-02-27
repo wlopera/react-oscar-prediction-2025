@@ -6,7 +6,7 @@ import ListOpcionesButton from "../ui/button/ListOpcionesButton";
 import ResultsContext from "@/store/results-context";
 
 import styles from "./OscarNominations.module.css";
-import { getCategories, updateResultsJsonBin } from "@/jsonbin/jsonbinApi";
+import { getCategories } from "@/jsonbin/jsonbinApi";
 
 interface Props {
   name: string;
@@ -16,6 +16,7 @@ export const OscarNominations = ({ name }: Props) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const context = useContext(ResultsContext);
   if (!context) {
@@ -25,6 +26,10 @@ export const OscarNominations = ({ name }: Props) => {
   }
 
   const { results, getResultsByUser, clearResultsByUser } = context;
+
+  useEffect(() => {
+    setErrorMessage(null);
+  }, [results]); // Se ejecuta solo cuando cambian os resultados
 
   useEffect(() => {
     const fetchNominations = async () => {
@@ -37,7 +42,6 @@ export const OscarNominations = ({ name }: Props) => {
 
         const data = await response.json();
 
-        //console.log("Data: ", JSON.stringify(data, null, 2));
         setCategories(data.record.categories);
       } catch (err) {
         setError((err as Error).message);
@@ -56,7 +60,16 @@ export const OscarNominations = ({ name }: Props) => {
   const userResults = getResultsByUser(name);
 
   const sendResults = async () => {
-    await updateResultsJsonBin(results);
+    const user = results?.users.find((item) => item.name === name);
+    user?.result.forEach((entry) => {
+      const value = Object.values(entry)[0]; // Obtener el valor de la categoria
+      if (value === "") {
+        setErrorMessage("DEBEN ESTAR DEFINIDAS TODAS LAS CATEGORIAS");
+        return;
+      }
+    });
+
+    //await updateResultsJsonBin(results);
   };
 
   const getNominations = () => {
@@ -89,13 +102,14 @@ export const OscarNominations = ({ name }: Props) => {
       <div className="col-6">
         <div className="row">
           <div className="col-8">
-            <h1>Nominados - {name}</h1>
+            <h1>Candidatos - {name}</h1>
           </div>
         </div>
         {getNominations()}
       </div>
       <div className={`col-8 text-start ${styles.table_results}`}>
         <div className="text-end gap-2">
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
           <button
             type="button"
             className="btn btn-primary me-2"

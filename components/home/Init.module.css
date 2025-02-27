@@ -1,0 +1,89 @@
+/* Fondo general en tono cálido */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fef3c7; /* Amarillo pastel */
+  }
+  
+  /* Contenedor del formulario */
+  .formContainer {
+    padding: 20px;
+    border: 2px solid #e76f51; /* Rojo suave */
+    background-color: #f4a261; /* Melocotón suave */
+    border-radius: 10px;
+    width: 350px;
+    color: #264653; /* Azul oscuro para contraste */
+    box-shadow: 0 0 10px rgba(231, 111, 81, 0.5); /* Sombra con tono rojo suave */
+  }
+  
+  /* Etiquetas de los inputs */
+  .label {
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  /* Campos de entrada */
+  .input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #e76f51; /* Rojo suave */
+    border-radius: 5px;
+    background-color: #ffe5ec; /* Rosa claro */
+    color: #333; /* Texto oscuro */
+  }
+  
+  /* Efecto al enfocar el input */
+  .input:focus {
+    outline: none;
+    border-color: #ffcc00; /* Amarillo dorado */
+  }
+  
+  /* Contenedor de la contraseña y botón en la misma línea */
+  .inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Botón de mostrar/ocultar */
+  .toggleButton {
+    background-color: #2a9d8f; /* Verde suave */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggleButton:hover {
+    background-color: #21867a; /* Verde más oscuro */
+  }
+  
+  /* Botón de aceptar */
+  .button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e76f51; /* Rojo suave */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #c44536; /* Rojo más oscuro */
+  }
+  
+  /* Mensaje de error */
+  .error {
+    color: #ff4444; /* Rojo para errores */
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  

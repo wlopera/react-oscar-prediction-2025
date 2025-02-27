@@ -2,6 +2,7 @@
 
 import ResultsContext from "@/store/results-context";
 import React, { useContext } from "react";
+import styles from "./CustomButton.module.css"; // Importa el CSS
 
 interface Props {
   name: string;
@@ -31,13 +32,9 @@ export const CustomButton = ({
 
   return (
     <button
-      style={{
-        width: "400px",
-        textAlign: "left",
-        margin: "1px",
-        backgroundColor: currentValue === value ? "#0D6EFD" : "#e8efee",
-        color: currentValue === value ? "white" : "black",
-      }}
+      className={`${styles["custom-button"]} ${
+        currentValue === value ? styles.selected : styles.default
+      }`}
       onClick={handleChangeValue}
     >
       {value}

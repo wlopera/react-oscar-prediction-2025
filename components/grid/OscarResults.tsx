@@ -29,6 +29,7 @@ export const OscarResults = () => {
   const [error, setError] = useState<string | null>(null);
   const [records, setRecords] = useState<SessionState | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [modalData, setModalData] = useState<{
     title: string;
     content: string[];
@@ -95,11 +96,13 @@ export const OscarResults = () => {
   );
 
   const getWinner = ({ category }: { category: string | undefined }) => {
-    const record = categories.find((item) => item.name === category);
+    if (!category) return;
+    setSelectedCategory(category); // Guarda la categoría seleccionada
 
+    const record = categories.find((item) => item.name === category);
     setModalData({
-      title: category ?? "Categoría desconocida",
-      content: record?.nominees ?? [], // Se asegura de que siempre sea un array
+      title: category,
+      content: record?.nominees ?? [],
     });
 
     setShowModal(true);
@@ -122,63 +125,85 @@ export const OscarResults = () => {
     return total;
   };
 
+  const sendResults = async () => {
+    console.log("Resultados actuales: ", results);
+    //await updateResultsJsonBin(results);
+  };
+
   return (
-    <div className={`text-start ${styles.table_wrapper}`}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th className={styles.headerCell}>Categoría</th>
-            {records?.users.map((user, index) => (
-              <React.Fragment key={`header-${index}`}>
-                {user.name === "WINNER" ? (
-                  <th className={styles.headerCell}>{`${user.name} `}</th>
-                ) : (
-                  <th className={styles.headerCell}>{`${
-                    user.name
-                  } ... ${getTotalByUser(user.name)}`}</th>
-                )}
-              </React.Fragment>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {allCategories.map((category, i) => (
-            <tr key={i}>
-              <td
-                className={styles.cell}
-                onClick={() => getWinner({ category })}
-              >
-                {category}
-              </td>
-              {records?.users.map((user, j) => {
-                const userEntry = user.values.find(
-                  (v) => v.category === category
-                );
-                return (
-                  <React.Fragment key={`row-${j}-${i}`}>
-                    {user.name === "WINNER" ? (
-                      <td className={styles.cell}>{`${userEntry?.value} `}</td>
-                    ) : (
-                      <td className={styles.cell}>{`${
-                        userEntry?.value?.substring(0, 25) + "..." || "-"
-                      } ${userEntry?.score ?? 0}`}</td>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+    <div>
+      <div className={`text-start ${styles.table_wrapper}`}>
+        <table className={styles.table}>
+          <thead className={styles.headerThead}>
+            <tr>
+              <th className={styles.headerCell}>Categoría</th>
+              {records?.users.map((user, index) => (
+                <React.Fragment key={`header-${index}`}>
+                  {user.name === "WINNER" ? (
+                    <th className={styles.headerCell}>{`${user.name} `}</th>
+                  ) : (
+                    <th className={styles.headerCell}>{`${
+                      user.name
+                    } - Puntos:  ${getTotalByUser(user.name)}`}</th>
+                  )}
+                </React.Fragment>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* Renderiza el modal si está activo */}
-      {showModal && (
-        <ModalComponent
-          show={showModal}
-          onClose={() => setShowModal(false)}
-          onUpdate={(title, value) => handleChangeValue(title, value)}
-          {...modalData}
-        />
-      )}
+          </thead>
+          <tbody>
+            {allCategories.map((category, i) => (
+              <tr
+                key={i}
+                className={`${
+                  selectedCategory === category ? styles.selected : ""
+                }`}
+              >
+                <td
+                  className={`${styles.cell} ${styles.cell_click}`}
+                  onClick={() => getWinner({ category })}
+                >
+                  {category}
+                </td>
+                {records?.users.map((user, j) => {
+                  const userEntry = user.values.find(
+                    (v) => v.category === category
+                  );
+                  return (
+                    <React.Fragment key={`row-${j}-${i}`}>
+                      {user.name === "WINNER" ? (
+                        <td
+                          className={styles.cell}
+                        >{`${userEntry?.value} `}</td>
+                      ) : (
+                        <td className={styles.cell}>{`${
+                          userEntry?.value?.substring(0, 25) + "..." || "-"
+                        } ${userEntry?.score ?? 0}`}</td>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* Renderiza el modal si está activo */}
+        {showModal && (
+          <ModalComponent
+            show={showModal}
+            onClose={() => {
+              setShowModal(false);
+              setSelectedCategory(null);
+            }}
+            onUpdate={(title, value) => handleChangeValue(title, value)}
+            {...modalData}
+          />
+        )}
+      </div>
+      <div className="text-end m-2">
+        <button type="button" className="btn btn-success" onClick={sendResults}>
+          Enviar
+        </button>
+      </div>
     </div>
   );
 };

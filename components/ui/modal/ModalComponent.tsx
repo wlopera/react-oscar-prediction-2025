@@ -68,6 +68,13 @@ const ModalComponent: React.FC<ModalProps> = ({
             <button
               type="button"
               className="btn btn-light"
+              onClick={() => onUpdate(title, "")}
+            >
+              Limpiar
+            </button>
+            <button
+              type="button"
+              className="btn btn-light"
               onClick={() => onUpdate(title, selectedValue)}
             >
               Aceptar

@@ -1,11 +1,6 @@
 import { data } from "@/data/data";
 import { records } from "@/data/records";
 
-type Category = {
-  name: string;
-  nominees: string[];
-};
-
 type ResultItem = Record<string, string | undefined>;
 
 type UserResult = {
@@ -126,7 +121,7 @@ export const updateResultsJsonBin = async (data: SessionState | null) => {
     }
 
     const response = await respuesta.json();
-    // console.log("Respuesta:", response);
+    console.log("Respuesta:", response);
   } catch (error) {
     console.error("Error al actualizar el bin:", error);
   }
