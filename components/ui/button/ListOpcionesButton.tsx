@@ -8,9 +8,15 @@ interface Props {
   name: string;
   category: Category;
   userResults?: ResultItem[];
+  onCategory: () => void;
 }
 
-const ListOpcionesButton = ({ name, category, userResults }: Props) => {
+const ListOpcionesButton = ({
+  name,
+  category,
+  userResults,
+  onCategory,
+}: Props) => {
   const find = userResults?.find(
     (item) => Object.keys(item)[0] === category.name
   );
@@ -27,6 +33,7 @@ const ListOpcionesButton = ({ name, category, userResults }: Props) => {
               category={category.name}
               value={nominee}
               currentValue={currentValue}
+              onCategory={onCategory}
             />
           </div>
         </div>

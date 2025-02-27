@@ -22,3 +22,9 @@
   .field_key { width: 250px; font-weight: bold}
     
   .field_value { margin-left: 10px }
+
+  .selected_row {
+    background-color: rgba(13, 107, 244, 0.80); /* Un azul claro */
+    font-weight: bold;
+    color: white
+  }

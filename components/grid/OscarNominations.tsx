@@ -17,6 +17,7 @@ export const OscarNominations = ({ name }: Props) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [currectCategory, setCurrectCategory] = useState<string>("");
 
   const context = useContext(ResultsContext);
   if (!context) {
@@ -79,6 +80,7 @@ export const OscarNominations = ({ name }: Props) => {
           name={name}
           category={category}
           userResults={userResults}
+          onCategory={() => setCurrectCategory(category.name)}
         />
       </div>
     ));
@@ -88,7 +90,12 @@ export const OscarNominations = ({ name }: Props) => {
     return userResults?.map((item, index) => {
       const [key, value] = Object.entries(item)[0];
       return (
-        <div key={index} className={styles.table_title}>
+        <div
+          key={index}
+          className={`${styles.table_title} ${
+            key === currectCategory ? styles.selected_row : ""
+          }`}
+        >
           <div className={styles.field_key}>{key}</div>
           <div>:</div>
           <div className={styles.field_value}>{value || ""}</div>
@@ -96,7 +103,6 @@ export const OscarNominations = ({ name }: Props) => {
       );
     });
   };
-
   return (
     <div className="row">
       <div className="col-6">

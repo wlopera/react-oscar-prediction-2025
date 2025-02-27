@@ -9,6 +9,7 @@ interface Props {
   category: string;
   value: string;
   currentValue?: string;
+  onCategory: () => void;
 }
 
 export const CustomButton = ({
@@ -16,6 +17,7 @@ export const CustomButton = ({
   category,
   value,
   currentValue,
+  onCategory,
 }: Props) => {
   const context = useContext(ResultsContext);
   if (!context) {
@@ -27,6 +29,7 @@ export const CustomButton = ({
   const { updateResult } = context;
 
   const handleChangeValue = () => {
+    onCategory();
     updateResult(name, category, value);
   };
 
