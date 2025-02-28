@@ -9,7 +9,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<string | null>(null);
 
   const login = (username: string) => setUser(username);
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+    window.location.reload(); // reiniciar la App
+  };
 
   return (
     <UserContext.Provider value={{ user, login, logout }}>

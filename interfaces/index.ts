@@ -1,2 +1,2 @@
-export * from "./Category.interface";
+export * from "./Results.interface";
 export * from "./User.interfase";

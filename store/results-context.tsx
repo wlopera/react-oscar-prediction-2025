@@ -1,23 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { getAllResults } from "@/jsonbin/jsonbinApi";
-
-type ResultItem = Record<string, string | undefined>;
-
-type UserResult = {
-  name: string;
-  result: ResultItem[];
-};
-
-type SessionState = {
-  users: UserResult[];
-};
-
-type ResultsContextType = {
-  results: SessionState | null;
-  updateResult: (name: string, category: string, value: string) => void;
-  getResultsByUser: (name: string) => ResultItem[] | undefined;
-  clearResultsByUser: (name: string) => void;
-};
+import { ResultsContextType, SessionState } from "@/interfaces";
 
 const ResultsContext = createContext<ResultsContextType | undefined>(undefined);
 
@@ -39,7 +22,6 @@ export const ResultsContextProvider = ({
 
         const data = await response.json();
 
-        //console.log("Data: ", JSON.stringify(data, null, 2));
         setResults(data.record);
       } catch (err) {
         console.log("Error: ", err);
