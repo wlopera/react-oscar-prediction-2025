@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
-import ResultsContext from "@/store/results-context";
+import React, { useState, useEffect } from "react";
+import { useResults } from "@/store/results-context";
 
 import styles from "./OscarResults.module.css";
 import { getCategories } from "@/jsonbin/jsonbinApi";
@@ -38,14 +38,7 @@ export const OscarResults = () => {
     content: [],
   });
 
-  const context = useContext(ResultsContext);
-  if (!context) {
-    throw new Error(
-      "OscarResults debe estar dentro de un ResultsContextProvider"
-    );
-  }
-
-  const { results, updateResult } = context;
+  const { results, updateResult } = useResults();
 
   useEffect(() => {
     const fetchNominations = async () => {

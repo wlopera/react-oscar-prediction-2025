@@ -1,12 +1,11 @@
 "use client";
 
 import { Category } from "@/interfaces";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import ListOpcionesButton from "../ui/button/ListOpcionesButton";
-import ResultsContext from "@/store/results-context";
-
 import styles from "./OscarNominations.module.css";
 import { getCategories } from "@/jsonbin/jsonbinApi";
+import { useResults } from "@/store/results-context";
 
 interface Props {
   name: string;
@@ -19,14 +18,7 @@ export const OscarNominations = ({ name }: Props) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [currectCategory, setCurrectCategory] = useState<string>("");
 
-  const context = useContext(ResultsContext);
-  if (!context) {
-    throw new Error(
-      "OscarNominations debe estar dentro de un ResultsContextProvider"
-    );
-  }
-
-  const { results, getResultsByUser, clearResultsByUser } = context;
+  const { results, getResultsByUser, clearResultsByUser } = useResults();
 
   useEffect(() => {
     setErrorMessage(null);

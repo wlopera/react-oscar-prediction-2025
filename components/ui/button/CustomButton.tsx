@@ -1,7 +1,7 @@
 "use client";
 
-import ResultsContext from "@/store/results-context";
-import React, { useContext } from "react";
+import { useResults } from "@/store/results-context";
+import React from "react";
 import styles from "./CustomButton.module.css"; // Importa el CSS
 
 interface Props {
@@ -19,14 +19,7 @@ export const CustomButton = ({
   currentValue,
   onCategory,
 }: Props) => {
-  const context = useContext(ResultsContext);
-  if (!context) {
-    throw new Error(
-      "CustomButton debe estar dentro de un ResultsContextProvider"
-    );
-  }
-
-  const { updateResult } = context;
+  const { updateResult } = useResults();
 
   const handleChangeValue = () => {
     onCategory();

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { getAllResults } from "@/jsonbin/jsonbinApi";
 
 type ResultItem = Record<string, string | undefined>;
@@ -128,4 +128,13 @@ export const ResultsContextProvider = ({
   );
 };
 
-export default ResultsContext;
+// Hook personalizado para acceder al contexto
+export const useResults = () => {
+  const context = useContext(ResultsContext);
+  if (!context) {
+    throw new Error(
+      "useResults debe usarse dentro de un ResultsContextProvider"
+    );
+  }
+  return context;
+};
