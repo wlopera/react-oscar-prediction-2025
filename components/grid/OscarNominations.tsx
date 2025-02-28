@@ -4,7 +4,7 @@ import { Category } from "@/interfaces";
 import React, { useState, useEffect } from "react";
 import ListOpcionesButton from "../ui/button/ListOpcionesButton";
 import styles from "./OscarNominations.module.css";
-import { getCategories } from "@/jsonbin/jsonbinApi";
+import { getCategories, updateResultsJsonBin } from "@/jsonbin/jsonbinApi";
 import { useResults } from "@/store/results-context";
 
 interface Props {
@@ -62,7 +62,7 @@ export const OscarNominations = ({ name }: Props) => {
       }
     });
 
-    //await updateResultsJsonBin(results);
+    await updateResultsJsonBin(results);
   };
 
   const getNominations = () => {

@@ -59,7 +59,7 @@ export const ResultsContextProvider = ({
                 if (Object.keys(entry)[0] === category) {
                   return {
                     ...entry,
-                    puntuation: entry[category] === value ? "1" : "0", // Actualiza puntuation
+                    score: entry[category] === value ? "1" : "0", // Actualiza score
                   };
                 }
                 return entry;
@@ -69,8 +69,6 @@ export const ResultsContextProvider = ({
           return user;
         });
       }
-
-      //updateResultsJsonBin({ ...prev, users: updatedUsers });
 
       return { ...prev, users: updatedUsers };
     });

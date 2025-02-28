@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useResults } from "@/store/results-context";
 
 import styles from "./OscarResults.module.css";
-import { getCategories } from "@/jsonbin/jsonbinApi";
+import { getCategories, updateResultsJsonBin } from "@/jsonbin/jsonbinApi";
 import ModalComponent from "../ui/modal/ModalComponent";
 import { Category } from "@/interfaces";
 
@@ -119,8 +119,7 @@ export const OscarResults = () => {
   };
 
   const sendResults = async () => {
-    console.log("Resultados actuales: ", results);
-    //await updateResultsJsonBin(results);
+    await updateResultsJsonBin(results);
   };
 
   return (

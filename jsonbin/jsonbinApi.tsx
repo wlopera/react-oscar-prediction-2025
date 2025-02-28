@@ -1,16 +1,6 @@
 import { data } from "@/data/data";
 import { records } from "@/data/records";
-
-type ResultItem = Record<string, string | undefined>;
-
-type UserResult = {
-  name: string;
-  result: ResultItem[];
-};
-
-type SessionState = {
-  users: UserResult[];
-};
+import { SessionState } from "@/interfaces";
 
 // Metodo privados
 const getCategoriesUrl = () => {
@@ -23,15 +13,6 @@ const getCategoriesUrl = () => {
         "X-Master-Key": process.env.NEXT_PUBLIC_JSONBIN_X_MASTER_KEY as string, // Clave privada
       },
     }
-  );
-};
-
-const getCategoriesDummy = () => {
-  return Promise.resolve(
-    new Response(JSON.stringify(data), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    })
   );
 };
 
@@ -48,17 +29,7 @@ const getAllResultsUrl = () => {
   );
 };
 
-const getAllResultsDummy = () => {
-  return Promise.resolve(
-    new Response(JSON.stringify(records), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    })
-  );
-};
-
 // Metodo publicos
-
 export const getCategories = () => {
   // console.log("URL:", process.env.NEXT_PUBLIC_JSONBIN_ALL_CATEGORIES_URL);
   // console.log(
@@ -68,8 +39,8 @@ export const getCategories = () => {
   //     : "❌ No cargada"
   // );
 
-  //return getCategoriesUrl();
-  return getCategoriesDummy();
+  return getCategoriesUrl();
+  //return getCategoriesDummy();
 };
 
 export const getAllResults = () => {
@@ -81,8 +52,8 @@ export const getAllResults = () => {
   //     : "❌ No cargada"
   // );
 
-  //return getAllResultsUrl();
-  return getAllResultsDummy();
+  return getAllResultsUrl();
+  //return getAllResultsDummy();
 };
 
 export const updateResultsJsonBin = async (data: SessionState | null) => {
@@ -125,4 +96,24 @@ export const updateResultsJsonBin = async (data: SessionState | null) => {
   } catch (error) {
     console.error("Error al actualizar el bin:", error);
   }
+};
+
+// Metodos Dummy
+
+const getCategoriesDummy = () => {
+  return Promise.resolve(
+    new Response(JSON.stringify(data), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    })
+  );
+};
+
+const getAllResultsDummy = () => {
+  return Promise.resolve(
+    new Response(JSON.stringify(records), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    })
+  );
 };

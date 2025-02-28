@@ -4,246 +4,474 @@ export const records = {
       {
         name: "WINNER",
         result: [
-          { Película: "", puntuation: 0 },
-          { Director: "", puntuation: 0 },
+          {
+            Película: "",
+          },
+          {
+            Director: "",
+          },
           {
             "Actriz Principal": "",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Actor Principal": "",
-            puntuation: 0,
           },
           {
             "Actriz de Reparto": "",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Actor de Reparto": "",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Película Internacional": "",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Película de Animación": "",
-            puntuation: 0,
+            score: 0,
           },
-          { Documental: "", puntuation: 0 },
-          { Montaje: "", puntuation: 0 },
-          { Fotografía: "", puntuation: 0 },
-          { "Guion Adaptado": "", puntuation: 0 },
-          { "Guion Original": "", puntuation: 0 },
-          { Sonido: "", puntuation: 0 },
-          { "Banda Sonora": "", puntuation: 0 },
+          {
+            Documental: "",
+            score: 0,
+          },
+          {
+            Montaje: "",
+            score: 0,
+          },
+          {
+            Fotografía: "",
+            score: 0,
+          },
+          {
+            "Guion Adaptado": "",
+            score: 0,
+          },
+          {
+            "Guion Original": "",
+            score: 0,
+          },
+          {
+            Sonido: "",
+            score: 0,
+          },
+          {
+            "Banda Sonora": "",
+            score: 0,
+          },
           {
             "Canción Original": "",
-            puntuation: 0,
+            score: 0,
           },
-          { "Diseño de Producción": "", puntuation: 0 },
-          { "Diseño de Vestuario": "", puntuation: 0 },
-          { "Maquillaje y Peluquería": "", puntuation: 0 },
-          { "Mejores Efectos Visuales": "", puntuation: 0 },
-          { "Corto Ficción": "", puntuation: 0 },
-          { "Corto de Animación": "", puntuation: 0 },
-          { "Corto Documental": "", puntuation: 0 },
+          {
+            "Diseño de Producción": "",
+            score: 0,
+          },
+          {
+            "Diseño de Vestuario": "",
+            score: 0,
+          },
+          {
+            "Maquillaje y Peluquería": "",
+            score: 0,
+          },
+          {
+            "Mejores Efectos Visuales": "",
+            score: 0,
+          },
+          {
+            "Corto Ficción": "",
+            score: 0,
+          },
+          {
+            "Corto de Animación": "",
+            score: 0,
+          },
+          {
+            "Corto Documental": "",
+            score: 0,
+          },
         ],
       },
       {
         name: "ANDRES",
         result: [
-          { Película: "The Brutalist", puntuation: 0 },
-          { Director: "Brady Corbet - The Brutalist", puntuation: 0 },
           {
-            "Actriz Principal": "Karla Sofía Gascón - Emilia Pérez",
-            puntuation: 0,
+            Película: "",
           },
           {
-            "Actor Principal": "Colman Domingo - Las vidas de Sing Sing",
-            puntuation: 0,
+            Director: "",
           },
           {
-            "Actriz de Reparto": "Monica Barbaro - A Complete Unknown",
-            puntuation: 0,
+            "Actriz Principal": "",
+            score: 0,
           },
           {
-            "Actor de Reparto": "Guy Pearce - The Brutalist",
-            puntuation: 0,
+            "Actor Principal": "",
           },
           {
-            "Película Internacional": "Emilia Pérez (Francia)",
-            puntuation: 0,
+            "Actriz de Reparto": "",
+            score: 0,
           },
           {
-            "Película de Animación": "Memorias de un Caracol",
-            puntuation: 0,
+            "Actor de Reparto": "",
+            score: 0,
           },
-          { Documental: "Porcelain War", puntuation: 0 },
-          { Montaje: "Conclave", puntuation: 0 },
-          { Fotografía: "Dune: Parte 2", puntuation: 0 },
-          { "Guion Adaptado": "Las vidas de Sing Sing", puntuation: 0 },
-          { "Guion Original": "La sustancia", puntuation: 0 },
-          { Sonido: "Robot Salvaje", puntuation: 0 },
-          { "Banda Sonora": "The Wild Robot", puntuation: 0 },
           {
-            "Canción Original": "The Journey (Seis triple ocho)",
-            puntuation: 0,
+            "Película Internacional": "",
+            score: 0,
           },
-          { "Diseño de Producción": "Nosferatu", puntuation: 0 },
-          { "Diseño de Vestuario": "Gladiator II", puntuation: 0 },
-          { "Maquillaje y Peluquería": "A Different Man", puntuation: 0 },
-          { "Mejores Efectos Visuales": "Better Men", puntuation: 0 },
-          { "Corto Ficción": "Anuja", puntuation: 0 },
-          { "Corto de Animación": "Magic Candies", puntuation: 0 },
-          { "Corto Documental": "I am ready, Warden", puntuation: 0 },
+          {
+            "Película de Animación": "",
+            score: 0,
+          },
+          {
+            Documental: "",
+            score: 0,
+          },
+          {
+            Montaje: "",
+            score: 0,
+          },
+          {
+            Fotografía: "",
+            score: 0,
+          },
+          {
+            "Guion Adaptado": "",
+            score: 0,
+          },
+          {
+            "Guion Original": "",
+            score: 0,
+          },
+          {
+            Sonido: "",
+            score: 0,
+          },
+          {
+            "Banda Sonora": "",
+            score: 0,
+          },
+          {
+            "Canción Original": "",
+            score: 0,
+          },
+          {
+            "Diseño de Producción": "",
+            score: 0,
+          },
+          {
+            "Diseño de Vestuario": "",
+            score: 0,
+          },
+          {
+            "Maquillaje y Peluquería": "",
+            score: 0,
+          },
+          {
+            "Mejores Efectos Visuales": "",
+            score: 0,
+          },
+          {
+            "Corto Ficción": "",
+            score: 0,
+          },
+          {
+            "Corto de Animación": "",
+            score: 0,
+          },
+          {
+            "Corto Documental": "",
+            score: 0,
+          },
         ],
       },
       {
         name: "DANIEL",
         result: [
-          { Película: "The Brutalist", puntuation: 0 },
-          { Director: "Brady Corbet - The Brutalist", puntuation: 0 },
           {
-            "Actriz Principal": "Karla Sofía Gascón - Emilia Pérez",
-            puntuation: 0,
+            Película: "",
           },
           {
-            "Actor Principal": "Colman Domingo - Las vidas de Sing Sing",
-            puntuation: 0,
+            Director: "",
           },
           {
-            "Actriz de Reparto": "Monica Barbaro - A Complete Unknown",
-            puntuation: 0,
+            "Actriz Principal": "",
+            score: 0,
           },
           {
-            "Actor de Reparto": "Guy Pearce - The Brutalist",
-            puntuation: 0,
+            "Actor Principal": "",
           },
           {
-            "Película Internacional": "Emilia Pérez (Francia)",
-            puntuation: 0,
+            "Actriz de Reparto": "",
+            score: 0,
           },
           {
-            "Película de Animación": "Memorias de un Caracol",
-            puntuation: 0,
+            "Actor de Reparto": "",
+            score: 0,
           },
-          { Documental: "Porcelain War", puntuation: 0 },
-          { Montaje: "Conclave", puntuation: 0 },
-          { Fotografía: "Dune: Parte 2", puntuation: 0 },
-          { "Guion Adaptado": "Las vidas de Sing Sing", puntuation: 0 },
-          { "Guion Original": "La sustancia", puntuation: 0 },
-          { Sonido: "Robot Salvaje", puntuation: 0 },
-          { "Banda Sonora": "The Wild Robot", puntuation: 0 },
           {
-            "Canción Original": "The Journey (Seis triple ocho)",
-            puntuation: 0,
+            "Película Internacional": "",
+            score: 0,
           },
-          { "Diseño de Producción": "Nosferatu", puntuation: 0 },
-          { "Diseño de Vestuario": "Gladiator II", puntuation: 0 },
-          { "Maquillaje y Peluquería": "A Different Man", puntuation: 0 },
-          { "Mejores Efectos Visuales": "Better Men", puntuation: 0 },
-          { "Corto Ficción": "Anuja", puntuation: 0 },
-          { "Corto de Animación": "Magic Candies", puntuation: 0 },
-          { "Corto Documental": "I am ready, Warden", puntuation: 0 },
+          {
+            "Película de Animación": "",
+            score: 0,
+          },
+          {
+            Documental: "",
+            score: 0,
+          },
+          {
+            Montaje: "",
+            score: 0,
+          },
+          {
+            Fotografía: "",
+            score: 0,
+          },
+          {
+            "Guion Adaptado": "",
+            score: 0,
+          },
+          {
+            "Guion Original": "",
+            score: 0,
+          },
+          {
+            Sonido: "",
+            score: 0,
+          },
+          {
+            "Banda Sonora": "",
+            score: 0,
+          },
+          {
+            "Canción Original": "",
+            score: 0,
+          },
+          {
+            "Diseño de Producción": "",
+            score: 0,
+          },
+          {
+            "Diseño de Vestuario": "",
+            score: 0,
+          },
+          {
+            "Maquillaje y Peluquería": "",
+            score: 0,
+          },
+          {
+            "Mejores Efectos Visuales": "",
+            score: 0,
+          },
+          {
+            "Corto Ficción": "",
+            score: 0,
+          },
+          {
+            "Corto de Animación": "",
+            score: 0,
+          },
+          {
+            "Corto Documental": "",
+            score: 0,
+          },
         ],
       },
       {
         name: "HECTOR",
         result: [
-          { Película: "Emilia Pérez", puntuation: 0 },
-          { Director: "Brady Corbet - The Brutalist", puntuation: 0 },
-          { "Actriz Principal": "Mikey Madison - Anora", puntuation: 0 },
+          {
+            Película: "Emilia Pérez",
+            score: "0",
+          },
+          {
+            Director: "Brady Corbet - The Brutalist",
+            score: "0",
+          },
+          {
+            "Actriz Principal": "Mikey Madison - Anora",
+            score: 0,
+          },
           {
             "Actor Principal": "Ralph Fiennes - Conclave",
-            puntuation: 0,
+            score: "0",
           },
           {
             "Actriz de Reparto": "Isabella Rossellini - Conclave",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Actor de Reparto": "Guy Pearce - The Brutalist",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Película Internacional": "The Seed of the Sacred Fig (Alemania)",
-            puntuation: 0,
+            score: 0,
           },
           {
             "Película de Animación": "Memorias de un Caracol",
-            puntuation: 0,
+            score: 0,
           },
-          { Documental: "Soundtrack to a Coup d’Etat", puntuation: 0 },
-          { Montaje: "Conclave", puntuation: 0 },
-          { Fotografía: "The Brutalist", puntuation: 0 },
-          { "Guion Adaptado": "Conclave", puntuation: 0 },
-          { "Guion Original": "Anora", puntuation: 0 },
-          { Sonido: "Dune: Parte Dos", puntuation: 0 },
-          { "Banda Sonora": "Emilia Pérez", puntuation: 0 },
+          {
+            Documental: "Soundtrack to a Coup d’Etat",
+            score: 0,
+          },
+          {
+            Montaje: "Conclave",
+            score: 0,
+          },
+          {
+            Fotografía: "The Brutalist",
+            score: 0,
+          },
+          {
+            "Guion Adaptado": "Conclave",
+            score: 0,
+          },
+          {
+            "Guion Original": "Anora",
+            score: 0,
+          },
+          {
+            Sonido: "Dune: Parte Dos",
+            score: 0,
+          },
+          {
+            "Banda Sonora": "Emilia Pérez",
+            score: 0,
+          },
           {
             "Canción Original": "Like a bird (Las vidas de Sing Sing)",
-            puntuation: 0,
+            score: 0,
           },
-          { "Diseño de Producción": "Conclave", puntuation: 0 },
-          { "Diseño de Vestuario": "Gladiator II", puntuation: 0 },
-          { "Maquillaje y Peluquería": "Nosferatu", puntuation: 0 },
+          {
+            "Diseño de Producción": "Conclave",
+            score: 0,
+          },
+          {
+            "Diseño de Vestuario": "Gladiator II",
+            score: 0,
+          },
+          {
+            "Maquillaje y Peluquería": "Nosferatu",
+            score: 0,
+          },
           {
             "Mejores Efectos Visuales": "Kingdom of the Planet of the Apes",
-            puntuation: 0,
+            score: 0,
           },
-          { "Corto Ficción": "I’m not a robot", puntuation: 0 },
-          { "Corto de Animación": "Wander To Wonder", puntuation: 0 },
-          { "Corto Documental": "Incident", puntuation: 0 },
+          {
+            "Corto Ficción": "I’m not a robot",
+            score: 0,
+          },
+          {
+            "Corto de Animación": "Wander To Wonder",
+            score: 0,
+          },
+          {
+            "Corto Documental": "Incident",
+            score: 0,
+          },
         ],
       },
       {
         name: "WILLIAM",
         result: [
-          { Película: "Emilia Pérez", puntuation: 0 },
-          { Director: "Brady Corbet - The Brutalist", puntuation: 0 },
-          { "Actriz Principal": "Mikey Madison - Anora", puntuation: 0 },
           {
-            "Actor Principal": "Ralph Fiennes - Conclave",
-            puntuation: 0,
+            Película: "",
           },
           {
-            "Actriz de Reparto": "Isabella Rossellini - Conclave",
-            puntuation: 0,
+            Director: "",
           },
           {
-            "Actor de Reparto": "Guy Pearce - The Brutalist",
-            puntuation: 0,
+            "Actriz Principal": "",
+            score: 0,
           },
           {
-            "Película Internacional": "The Seed of the Sacred Fig (Alemania)",
-            puntuation: 0,
+            "Actor Principal": "",
           },
           {
-            "Película de Animación": "Memorias de un Caracol",
-            puntuation: 0,
+            "Actriz de Reparto": "",
+            score: 0,
           },
-          { Documental: "Soundtrack to a Coup d’Etat", puntuation: 0 },
-          { Montaje: "Conclave", puntuation: 0 },
-          { Fotografía: "The Brutalist", puntuation: 0 },
-          { "Guion Adaptado": "Conclave", puntuation: 0 },
-          { "Guion Original": "Anora", puntuation: 0 },
-          { Sonido: "Dune: Parte Dos", puntuation: 0 },
-          { "Banda Sonora": "Emilia Pérez", puntuation: 0 },
           {
-            "Canción Original": "Like a bird (Las vidas de Sing Sing)",
-            puntuation: 0,
+            "Actor de Reparto": "",
+            score: 0,
           },
-          { "Diseño de Producción": "Conclave", puntuation: 0 },
-          { "Diseño de Vestuario": "Gladiator II", puntuation: 0 },
-          { "Maquillaje y Peluquería": "Nosferatu", puntuation: 0 },
           {
-            "Mejores Efectos Visuales": "Kingdom of the Planet of the Apes",
-            puntuation: 0,
+            "Película Internacional": "",
+            score: 0,
           },
-          { "Corto Ficción": "I’m not a robot", puntuation: 0 },
-          { "Corto de Animación": "Wander To Wonder", puntuation: 0 },
-          { "Corto Documental": "Incident", puntuation: 0 },
+          {
+            "Película de Animación": "",
+            score: 0,
+          },
+          {
+            Documental: "",
+            score: 0,
+          },
+          {
+            Montaje: "",
+            score: 0,
+          },
+          {
+            Fotografía: "",
+            score: 0,
+          },
+          {
+            "Guion Adaptado": "",
+            score: 0,
+          },
+          {
+            "Guion Original": "",
+            score: 0,
+          },
+          {
+            Sonido: "",
+            score: 0,
+          },
+          {
+            "Banda Sonora": "",
+            score: 0,
+          },
+          {
+            "Canción Original": "",
+            score: 0,
+          },
+          {
+            "Diseño de Producción": "",
+            score: 0,
+          },
+          {
+            "Diseño de Vestuario": "",
+            score: 0,
+          },
+          {
+            "Maquillaje y Peluquería": "",
+            score: 0,
+          },
+          {
+            "Mejores Efectos Visuales": "",
+            score: 0,
+          },
+          {
+            "Corto Ficción": "",
+            score: 0,
+          },
+          {
+            "Corto de Animación": "",
+            score: 0,
+          },
+          {
+            "Corto Documental": "",
+            score: 0,
+          },
         ],
       },
     ],
