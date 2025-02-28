@@ -1,5 +1,8 @@
+"use client";
 import React from "react";
 import "./globals.css";
+import { UserProvider } from "@/store/user-context";
+import { ResultsContextProvider } from "@/store/results-context";
 
 export default function RootLayout({
   children,
@@ -12,7 +15,11 @@ export default function RootLayout({
         <title>Oscar 2025</title>
       </head>
       <body>
-        <main>{children} </main>
+        <UserProvider>
+          <ResultsContextProvider>
+            <main>{children} </main>
+          </ResultsContextProvider>
+        </UserProvider>
       </body>
     </html>
   );

@@ -3,9 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     background-color: #fef3c7; /* Amarillo pastel */
-  }
+    }
   
   /* Contenedor del formulario */
   .formContainer {

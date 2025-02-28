@@ -2,38 +2,31 @@
 
 import { users } from "@/data/users";
 import React, { FormEvent, useState } from "react";
-import { OscarResults } from "../grid/OscarResults";
-import { OscarNominations } from "../grid/OscarNominations";
-import styles from "./Init.module.css"; // Importa el CSS
+import styles from "./login.module.css";
+import { useUser } from "@/store/user-context";
 
-export const Init = () => {
-  const [user, setUser] = useState("");
+export const Login = () => {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
+
+  const { login } = useUser();
 
   const onHandleSubmit = (event: FormEvent) => {
     event.preventDefault();
     setError(null);
     if (validateUser()) {
-      setAuthenticated(true);
+      login(username);
     } else {
       setError("Usuario o contraseña incorrectos.");
     }
   };
 
   const validateUser = () => {
-    const recordUser = users.find((item) => item.user === user);
+    const recordUser = users.find((item) => item.user === username);
     return recordUser?.password === password;
   };
-
-  if (authenticated) {
-    if (user === "master") {
-      return <OscarResults />;
-    }
-    return <OscarNominations name={user.toUpperCase()} />;
-  }
 
   return (
     <div className={styles.container}>
@@ -46,8 +39,8 @@ export const Init = () => {
             type="text"
             id="user"
             className={styles.input}
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="mb-3">

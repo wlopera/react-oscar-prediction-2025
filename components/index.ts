@@ -1,4 +1,4 @@
-export * from "./home/Init";
+export * from "./login/login";
 
 export * from "./grid/OscarNominations";
 export * from "./grid/OscarResults";

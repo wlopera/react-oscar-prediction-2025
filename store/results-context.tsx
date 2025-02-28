@@ -60,7 +60,7 @@ export const ResultsContextProvider = ({
               ...user,
               result: user.result.map((entry) =>
                 Object.keys(entry)[0] === category
-                  ? { [category]: value }
+                  ? { ...entry, [category]: value }
                   : entry
               ),
             }
@@ -109,7 +109,7 @@ export const ResultsContextProvider = ({
               ...user,
               result: user.result.map((entry) => {
                 const category = Object.keys(entry)[0]; // Obtener la categoría
-                return { [category]: "" }; // Asignar "" a la categoría
+                return { ...entry, [category]: "" }; // Asignar "" a la categoría
               }),
             }
           : user

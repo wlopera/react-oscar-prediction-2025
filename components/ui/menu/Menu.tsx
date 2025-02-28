@@ -1,13 +1,13 @@
 "use client";
 
-import { Oscar } from "@/app/(oscar)/oscar";
-import React, { useState } from "react";
+import { useUser } from "@/store/user-context";
+import React from "react";
 
 export const Menu = () => {
-  const [showOscar, setShowOscar] = useState(false);
+  const { user, logout } = useUser();
 
   const onSubmitHandle = () => {
-    setShowOscar(true);
+    logout();
   };
 
   return (
@@ -26,26 +26,26 @@ export const Menu = () => {
             href="#"
             style={{ color: "#000000", fontWeight: "bold" }} // Morado llamativo
           >
-            Quiniela Oscar 2025 - Loperas
+            Quiniela Oscar 2025
           </a>
-          <form className="d-flex" role="search" onSubmit={onSubmitHandle}>
-            <button
-              className="btn"
-              type="submit"
-              style={{
-                backgroundColor: "#33cc33", // Verde vibrante
-                color: "white",
-                fontWeight: "bold",
-                border: "2px solid #009900", // Verde más oscuro
-              }}
-            >
-              Iniciar
-            </button>
-          </form>
+          {user && (
+            <form className="d-flex" role="search" onSubmit={onSubmitHandle}>
+              <button
+                className="btn"
+                type="submit"
+                style={{
+                  backgroundColor: "#33cc33", // Verde vibrante
+                  color: "white",
+                  fontWeight: "bold",
+                  border: "2px solid #009900", // Verde más oscuro
+                }}
+              >
+                Salir
+              </button>
+            </form>
+          )}
         </div>
       </nav>
-
-      {showOscar && <Oscar />}
     </>
   );
 };
